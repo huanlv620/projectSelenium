@@ -22,6 +22,7 @@ class LoginTestCase(unittest.TestCase):
         cls.driver.implicitly_wait(10)
         cls.driver.maximize_window()
 
+    # test_01
     @classmethod
     def test_01_login_valid(self):
         driver = self.driver
@@ -29,38 +30,117 @@ class LoginTestCase(unittest.TestCase):
 
         login = LoginPage(driver)
         time.sleep(3)
-        login.enter_username("Admin")
-        time.sleep(1)
-        login.enter_password("admin123")
-        time.sleep(1)
-        login.click_login()
 
-        driver.save_screenshot("C:\\Users\\LENOVO\\Desktop\\ProjectSeleniumPOM\\POMProjectDemo\\img\\test01.png")
+        login.set_username("Admin")
+        time.sleep(1)
+        login.set_password("admin123")
+        time.sleep(1)
+        driver.save_screenshot("C:\\Users\\LENOVO\\Desktop\\ProjectSeleniumPOM\\POMProjectDemo\\img\\test1.png")
+        login.click_login()
+        driver.save_screenshot("C:\\Users\\LENOVO\\Desktop\\ProjectSeleniumPOM\\POMProjectDemo\\img\\test1_1.png")
 
         time.sleep(3)
 
         homepage = HomePage(driver)
         homepage.click_welcome()
+        driver.save_screenshot("C:\\Users\\LENOVO\\Desktop\\ProjectSeleniumPOM\\POMProjectDemo\\img\\test1_3.png")
+        time.sleep(1)
         homepage.click_logout()
+        driver.save_screenshot("C:\\Users\\LENOVO\\Desktop\\ProjectSeleniumPOM\\POMProjectDemo\\img\\test1_4.png")
+
         time.sleep(3)
 
+    # test_02 _invalid_username
     @classmethod
     def test_02_login_invalid_username(self):
         driver = self.driver
         driver.get("http://opensource-demo.orangehrmlive.com/")
 
         login = LoginPage(driver)
-        login.enter_username("Admin1")
+        time.sleep(3)
+
+        login.set_username("Admin123")
         time.sleep(1)
-        login.enter_password("admin123")
-        driver.save_screenshot("C:\\Users\\LENOVO\\Desktop\\ProjectSeleniumPOM\\POMProjectDemo\\img\\test2_1.png")
-
+        login.set_password("admin123")
+        time.sleep(1)
+        driver.save_screenshot("C:\\Users\\LENOVO\\Desktop\\ProjectSeleniumPOM\\POMProjectDemo\\img\\test2.png")
         login.click_login()
-
+        driver.save_screenshot("C:\\Users\\LENOVO\\Desktop\\ProjectSeleniumPOM\\POMProjectDemo\\img\\test2_1.png")
 
         time.sleep(3)
         driver.save_screenshot("C:\\Users\\LENOVO\\Desktop\\ProjectSeleniumPOM\\POMProjectDemo\\img\\test2_2.png")
+        message = driver.find_element_by_xpath(By.XPATH,"").text
+        self.assertEqual(message, "Invalid credentials123")
+
         time.sleep(3)
+
+    # test_03 invalid_password
+    @classmethod 
+    def test_03_login_invalid_password(self):
+        driver = self.driver
+        driver.get("http://opensource-demo.orangehrmlive.com/")
+
+        login = LoginPage(driver)
+        time.sleep(3)
+
+        login.set_username("Admin")
+        time.sleep(1)
+        login.set_password("admin123123")
+        time.sleep(1)
+        driver.save_screenshot("C:\\Users\\LENOVO\\Desktop\\ProjectSeleniumPOM\\POMProjectDemo\\img\\test3.png")
+        login.click_login()
+        driver.save_screenshot("C:\\Users\\LENOVO\\Desktop\\ProjectSeleniumPOM\\POMProjectDemo\\img\\test3_1.png")
+
+        time.sleep(3)
+        driver.save_screenshot("C:\\Users\\LENOVO\\Desktop\\ProjectSeleniumPOM\\POMProjectDemo\\img\\test3_2.png")
+        message = driver.find_element_by_xpath(By.XPATH,"").text
+        self.assertEqual(message, "Invalid credentials")
+
+        time.sleep(3)
+
+    # test_04 invalid_username_password
+    @classmethod
+    def test_04_login_invalid_username_password(self):
+        driver = self.driver
+        driver.get("http://opensource-demo.orangehrmlive.com/")
+
+        login = LoginPage(driver)
+        time.sleep(3)
+
+        login.set_username("Admin123")
+        time.sleep(1)
+        login.set_password("admin123123")
+        time.sleep(1)
+        driver.save_screenshot("C:\\Users\\LENOVO\\Desktop\\ProjectSeleniumPOM\\POMProjectDemo\\img\\test4.png")
+        login.click_login()
+        driver.save_screenshot("C:\\Users\\LENOVO\\Desktop\\ProjectSeleniumPOM\\POMProjectDemo\\img\\test4_1.png")
+
+        time.sleep(3)
+        driver.save_screenshot("C:\\Users\\LENOVO\\Desktop\\ProjectSeleniumPOM\\POMProjectDemo\\img\\test4_2.png")
+        message = driver.find_element_by_xpath(By.XPATH,"").text
+        self.assertEqual(message, "Invalid credentials")
+
+        time.sleep(3)
+
+    # test_05 invalid_blankUsername_balnkPassword
+    @classmethod
+    def test_05_login_invalid_blankUsername_blankPassword(self):
+        driver = self.driver
+        driver.get("http://opensource-demo.orangehrmlive.com/")
+
+        login = LoginPage(driver)
+        time.sleep(3)
+
+        login.set_username("")
+        time.sleep(1)
+        login.set_password("")
+        time.sleep(1)
+        driver.save_screenshot("C:\\Users\\LENOVO\\Desktop\\ProjectSeleniumPOM\\POMProjectDemo\\img\\test4.png")
+        login.click_login()
+        driver.save_screenshot("C:\\Users\\LENOVO\\Desktop\\ProjectSeleniumPOM\\POMProjectDemo\\img\\test4_1.png")
+
+        time.sleep(3)
+        driver.save_screenshot("C:\\Users\\LENOVO\\Desktop\\ProjectSeleniumPOM\\POMProjectDemo\\img\\test4_2.png")
         message = driver.find_element_by_xpath(By.XPATH,"").text
         self.assertEqual(message, "Invalid credentials")
 

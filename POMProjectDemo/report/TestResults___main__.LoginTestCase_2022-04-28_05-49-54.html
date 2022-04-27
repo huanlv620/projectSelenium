@@ -11,9 +11,9 @@
         <div class="row">
             <div class="col-xs-12">
                 <h2 class="text-capitalize">Unittest Results</h2>
-                <p class='attribute'><strong>Start Time: </strong>2022-04-28 05:16:41</p>
-                <p class='attribute'><strong>Duration: </strong>26.18 s</p>
-                <p class='attribute'><strong>Summary: </strong>Total: 2, Pass: 1, Error: 1</p>
+                <p class='attribute'><strong>Start Time: </strong>2022-04-28 05:49:54</p>
+                <p class='attribute'><strong>Duration: </strong>55.90 s</p>
+                <p class='attribute'><strong>Summary: </strong>Total: 4, Pass: 1, Error: 3</p>
             </div>
         </div>
         <div class="row">
@@ -46,7 +46,41 @@
                         </tr>
                         <tr style="display:none;">
                             <td class="col-xs-9" colspan="3"><p style="color:maroon;">TypeError: WebDriver.find_element_by_xpath() takes 2 positional arguments but 3 were given</p><p style="color:maroon;">Traceback (most recent call last):
-  File "c:\Users\LENOVO\Desktop\ProjectSeleniumPOM\POMProjectDemo\Tests\login.py", line 54, in test_02_login_invalid_username
+  File "c:\Users\LENOVO\Desktop\ProjectSeleniumPOM\POMProjectDemo\Tests\login.py", line 72, in test_02_login_invalid_username
+    message = driver.find_element_by_xpath(By.XPATH,"").text
+TypeError: WebDriver.find_element_by_xpath() takes 2 positional arguments but 3 were given
+</p>
+                            </td>
+                        </tr>
+                        <tr class='warning'>
+                            <td class="col-xs-10">test_03_login_invalid_password</td>
+                            <td class="col-xs-1">
+                                <span class="label label-warning" style="display:block;width:40px;">Error</span>
+                            </td>
+                            <td class="col-xs-1">
+                                <button class="btn btn-default btn-xs">View</button>
+                            </td>
+                        </tr>
+                        <tr style="display:none;">
+                            <td class="col-xs-9" colspan="3"><p style="color:maroon;">TypeError: WebDriver.find_element_by_xpath() takes 2 positional arguments but 3 were given</p><p style="color:maroon;">Traceback (most recent call last):
+  File "c:\Users\LENOVO\Desktop\ProjectSeleniumPOM\POMProjectDemo\Tests\login.py", line 96, in test_03_login_invalid_password
+    message = driver.find_element_by_xpath(By.XPATH,"").text
+TypeError: WebDriver.find_element_by_xpath() takes 2 positional arguments but 3 were given
+</p>
+                            </td>
+                        </tr>
+                        <tr class='warning'>
+                            <td class="col-xs-10">test_04_login_invalid_username_password</td>
+                            <td class="col-xs-1">
+                                <span class="label label-warning" style="display:block;width:40px;">Error</span>
+                            </td>
+                            <td class="col-xs-1">
+                                <button class="btn btn-default btn-xs">View</button>
+                            </td>
+                        </tr>
+                        <tr style="display:none;">
+                            <td class="col-xs-9" colspan="3"><p style="color:maroon;">TypeError: WebDriver.find_element_by_xpath() takes 2 positional arguments but 3 were given</p><p style="color:maroon;">Traceback (most recent call last):
+  File "c:\Users\LENOVO\Desktop\ProjectSeleniumPOM\POMProjectDemo\Tests\login.py", line 144, in test_04_login_invalid_username_password
     message = driver.find_element_by_xpath(By.XPATH,"").text
 TypeError: WebDriver.find_element_by_xpath() takes 2 positional arguments but 3 were given
 </p>
@@ -54,7 +88,7 @@ TypeError: WebDriver.find_element_by_xpath() takes 2 positional arguments but 3 
                         </tr>
                         <tr>
                             <td colspan="3">
-                                Total: 2, Pass: 1, Error: 1 -- Duration: 26.18 s
+                                Total: 4, Pass: 1, Error: 3 -- Duration: 55.90 s
                             </td>
                         </tr>
                     </tbody>
