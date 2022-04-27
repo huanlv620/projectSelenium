@@ -31,12 +31,12 @@ class LoginTestCase(unittest.TestCase):
         login.enter_username("Admin")
         login.enter_password("admin123")
         login.click_login()
-
+        time.sleep(5)
 
         homepage = HomePage(driver)
         homepage.click_welcome()
         homepage.click_logout()
-        time.sleep(2)
+        time.sleep(5)
 
     @classmethod
     def test_02_login_invalid_username(self):
@@ -47,11 +47,12 @@ class LoginTestCase(unittest.TestCase):
         login.enter_username("Admin1")
         login.enter_password("admin123")
         login.click_login()
+        time.sleep(2)
+
         message = driver.find_element_by_xpath(By.XPATH,"").text
         self.assertEqual(message, "Invalid credentials")
 
-
-        time.sleep(2)
+        time.sleep(5)
 
     @classmethod
     def tearDownClass(cls):
