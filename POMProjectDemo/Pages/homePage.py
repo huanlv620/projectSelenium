@@ -13,4 +13,4 @@ class HomePage():
         self.driver.find_element_by_id(self.welcome_link_id).click()
 
     def click_logout(self):
-        self.driver.find_element_by_link_text(By.LINK_TEXT,self.logout_link_linkText).click()
+        self.driver.find_element_by_link_text(self.logout_link_linkText).click()

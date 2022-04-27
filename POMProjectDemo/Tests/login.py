@@ -28,15 +28,21 @@ class LoginTestCase(unittest.TestCase):
         driver.get("http://opensource-demo.orangehrmlive.com/")
 
         login = LoginPage(driver)
+        time.sleep(3)
         login.enter_username("Admin")
+        time.sleep(1)
         login.enter_password("admin123")
+        time.sleep(1)
         login.click_login()
-        time.sleep(5)
+
+        driver.save_screenshot("C:\\Users\\LENOVO\\Desktop\\ProjectSeleniumPOM\\POMProjectDemo\\img\\test01.png")
+
+        time.sleep(3)
 
         homepage = HomePage(driver)
         homepage.click_welcome()
         homepage.click_logout()
-        time.sleep(5)
+        time.sleep(3)
 
     @classmethod
     def test_02_login_invalid_username(self):
@@ -45,14 +51,20 @@ class LoginTestCase(unittest.TestCase):
 
         login = LoginPage(driver)
         login.enter_username("Admin1")
+        time.sleep(1)
         login.enter_password("admin123")
-        login.click_login()
-        time.sleep(2)
+        driver.save_screenshot("C:\\Users\\LENOVO\\Desktop\\ProjectSeleniumPOM\\POMProjectDemo\\img\\test2_1.png")
 
+        login.click_login()
+
+
+        time.sleep(3)
+        driver.save_screenshot("C:\\Users\\LENOVO\\Desktop\\ProjectSeleniumPOM\\POMProjectDemo\\img\\test2_2.png")
+        time.sleep(3)
         message = driver.find_element_by_xpath(By.XPATH,"").text
         self.assertEqual(message, "Invalid credentials")
 
-        time.sleep(5)
+        time.sleep(3)
 
     @classmethod
     def tearDownClass(cls):
@@ -61,7 +73,7 @@ class LoginTestCase(unittest.TestCase):
         print("Test completed")
 
 if __name__ == '__main__':
-    unittest.main()
+    unittest.main(testRunner=HtmlTestRunner.HTMLTestRunner(output="C:\\Users\\LENOVO\\Desktop\\ProjectSeleniumPOM\\POMProjectDemo\\report"))
 
 
 
