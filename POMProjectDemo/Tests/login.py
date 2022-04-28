@@ -131,9 +131,9 @@ class LoginTestCase(unittest.TestCase):
         login = LoginPage(driver)
         time.sleep(3)
 
-        login.set_username("")
+        login.set_username(" ")
         time.sleep(1)
-        login.set_password("")
+        login.set_password(" ")
         time.sleep(1)
         driver.save_screenshot("C:\\Users\\LENOVO\\Desktop\\ProjectSeleniumPOM\\POMProjectDemo\\img\\test4.png")
         login.click_login()
